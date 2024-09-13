@@ -2,7 +2,10 @@
 # Task Management Application
 
 Welcome to the Task Management Application! This is a React-based project that allows users to manage tasks efficiently. The application features task creation, filtering, and completion functionality. It leverages the React Context API for state management and includes a range of features designed to help users keep track of their tasks.
-![image](https://github.com/user-attachments/assets/746baf44-ddc0-4ca3-9779-489f5c12a07b)
+
+### Watch the demo
+
+[![Watch the video](https://github.com/user-attachments/assets/746baf44-ddc0-4ca3-9779-489f5c12a07b)](https://drive.google.com/file/d/14AIye7YI_FN4q9qG0ZlOOQJHPqIO7Vs9/view?usp=sharing)
 
 
 ## Table of Contents
@@ -171,6 +174,8 @@ Contributions are welcome! To contribute:
    
 ![image](https://github.com/user-attachments/assets/2bcf9e02-11c1-438c-8b7b-7d223c9301f7)
 ![image](https://github.com/user-attachments/assets/b6d061ab-7450-4575-8eec-7dd29ca3174d)
+
+
 
 
 
