@@ -1,46 +1,169 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Task Management Application
 
-## Available Scripts
+Welcome to the Task Management Application! This is a React-based project that allows users to manage tasks efficiently. The application features task creation, filtering, and completion functionality. It leverages the React Context API for state management and includes a range of features designed to help users keep track of their tasks.
 
-In the project directory, you can run:
+## Table of Contents
 
-### `npm start`
+1. [Features](#features)
+2. [Technologies Used](#technologies-used)
+3. [Getting Started](#getting-started)
+4. [Installation](#installation)
+5. [Usage](#usage)
+6. [Folder Structure](#folder-structure)
+7. [Testing](#testing)
+8. [Contributing](#contributing)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Features
 
-### `npm test`
+- **Add Tasks**: Users can add new tasks through an input field.
+- **Toggle Task Completion**: Mark tasks as completed or active.
+- **Filter Tasks**: View tasks based on their completion status with filters for "All", "Active", and "Completed".
+- **Clear Completed Tasks**: Remove all completed tasks with a single click.
+- **Task Stats**: View the total number of tasks, completed tasks, and active tasks.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Technologies Used
 
-### `npm run build`
+- **React**: A JavaScript library for building user interfaces.
+- **TypeScript**: A typed superset of JavaScript that compiles to plain JavaScript.
+- **React Context API**: For state management and sharing state across components.
+- **React Testing Library**: For testing React components in a way that simulates user interactions.
+- **Jest**: A testing framework used for running unit tests.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Getting Started
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+To get started with the Task Management Application, follow these steps:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Installation
 
-### `npm run eject`
+1. **Clone the repository**:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+   ```bash
+   git clone https://github.com/Bhupendra-Maurya/Task-Management-Application.git
+   ```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. **Navigate to the project directory**:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+   ```bash
+   cd Task-Management-Application
+   ```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+3. **Install dependencies**:
 
-## Learn More
+   ```bash
+   npm install
+   ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Usage
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. **Run the development server**:
+
+   ```bash
+   npm start
+   ```
+
+   This will start the application and open it in your default web browser. The app will be available at `http://localhost:3000`.
+
+2. **Build for production**:
+
+   ```bash
+   npm run build
+   ```
+
+   This command creates a production-ready build of the application in the `build` directory.
+
+### Folder Structure
+
+The project is organized into the following main folders and files:
+
+- **`src/`**: Contains the main application code.
+  - **`__tests__/`**: Contains test files and test utilities.
+  - **`components/`**: React components for the application.
+    - `TaskList.tsx`: Component displaying the list of tasks.
+    - `TaskInput.tsx`: Component for adding new tasks.
+    - `FilterButtons.tsx`: Component for filtering tasks.
+    - `ClearCompleted.tsx`: Component for clearing completed tasks.
+    - `TaskStats.tsx`: Component for displaying task statistics.
+  - **`context/`**: Contains context providers and hooks.
+    - `TaskContext.ts`: Creates context for task management.
+    - `TaskProvider.tsx`: Provides context for task management.
+  - **`types/`**: Contains TypeScript interfaces.
+  - **`App.tsx`**: Main application component.
+  - **`index.tsx`**: Entry point of the application.
+- **`public/`**: Public assets and the main HTML file.
+- **`package.json`**: Project metadata and dependencies.
+
+### Testing
+
+The project uses Jest and React Testing Library for testing. To run the tests, use the following commands:
+
+- **Run all tests**:
+
+  ```bash
+  npm test
+  ```
+
+- **Run a specific test file**:
+
+  ```bash
+  npm test TaskList
+  ```
+
+- **Generate a code coverage report**:
+
+  ```bash
+  npm run coverage
+  ```
+
+  This command generates a coverage report and places it in the `coverage` directory. Open the `index.html` file located in `coverage/lcov-report` to view the report in your browser.
+
+### Test Setup
+
+The `setupTest.ts` file configures Jest to suppress specific console errors related to CSS stylesheet parsing:
+
+```typescript
+import '@testing-library/jest-dom';
+
+let consoleSpy: jest.SpyInstance;
+
+beforeAll(() => {
+    consoleSpy = jest.spyOn(global.console, 'error').mockImplementation((message) => {
+        if (!message?.message?.includes('Could not parse CSS stylesheet')) {
+            global.console.warn(message);
+        }
+    });
+});
+
+afterAll(() => consoleSpy.mockRestore());
+```
+
+This configuration ensures that irrelevant warnings are not shown during test runs.
+
+## Contributing
+
+Contributions are welcome! To contribute:
+
+1. **Fork the repository**.
+2. **Create a new branch**:
+
+   ```bash
+   git checkout -b feature/your-feature
+   ```
+
+3. **Make your changes** and **commit them**:
+
+   ```bash
+   git add .
+   git commit -m "Add your commit message"
+   ```
+
+4. **Push your changes** to your fork:
+
+   ```bash
+   git push origin feature/your-feature
+   ```
+
+5. **Create a pull request** from your fork to the main repository.
+
+
